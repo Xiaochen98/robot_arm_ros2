@@ -1,0 +1,2 @@
+class SharedState:
+    initialized = False

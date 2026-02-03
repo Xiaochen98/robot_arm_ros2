@@ -1,0 +1,19 @@
+# ROS2 / colcon build outputs
+build/
+install/
+log/
+
+# python caches
+__pycache__/
+*.pyc
+
+# editor
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+
+
