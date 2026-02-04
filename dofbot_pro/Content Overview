@@ -1,0 +1,238 @@
+🟥 核心厂商 SDK（只有一个）
+Arm_Lib/
+
+标签：🔴 Vendor SDK（核心、不开源）
+
+它是什么
+
+厂商提供的 Python 控制库
+
+串口 / 舵机 / 关节控制
+
+被几乎所有 demo import
+
+你该怎么做
+
+❌ 不放 public repo
+
+✅ 放 private backup repo
+
+✅ 当作“底层依赖”，不要在这里深度开发
+
+👉 这是整个厂家代码里唯一“不可替代”的东西
+
+🟠 桌面/整机 Demo（应用层）
+APP_DOFBBOT_PRO/
+
+标签：🟠 Desktop Demo App
+
+它是什么
+
+Python GUI + joystick + camera 的整合演示程序
+
+面向“用户演示”，不是工程复用
+
+你该怎么做
+
+❌ 不作为 ROS / 工程核心
+
+✅ 放 attic/ 或 private
+
+❌ 不值得重构
+
+Yahboom_Oled/
+
+标签：🟠 Peripheral Demo（附属硬件）
+
+它是什么
+
+OLED 屏显示
+
+systemd 服务 / shell 脚本
+
+你该怎么做
+
+❌ 与机械臂控制主线无关
+
+✅ 归档即可
+
+❌ 不纳入 ROS2 体系
+
+🟡 ROS / 视觉 / 行为 Demo（一大堆）
+
+下面这些 名字一看就是“教学功能”，不是通用库：
+
+dofbot_apriltag
+
+标签：🟡 ROS Vision Demo（AprilTag）
+
+它是什么
+
+AprilTag 识别示例
+
+ROS 包结构（package.xml + CMakeLists.txt）
+
+建议
+
+如果你之后用 AprilTag → 放 vendor_ros_pkgs/
+
+否则 → attic/
+
+dofbot_basic_visual
+
+标签：🟡 Vision Demo（基础视觉）
+
+它是什么
+
+OpenCV 基础示例
+
+摄像头 + 简单处理
+
+建议
+
+教学参考
+
+不作为工程核心
+
+dofbot_opencv
+
+标签：🟡 Vision Demo（OpenCV 集合）
+
+它是什么
+
+OpenCV 功能演示合集
+
+建议
+
+和 dofbot_basic_visual 同类
+
+只作为参考
+
+🟡 “颜色/行为驱动” Demo（套路一模一样）
+
+下面这些 本质都是：
+视觉识别 → 规则逻辑 → 调 Arm_Lib 动作
+
+dofbot_color_follow
+dofbot_color_grab
+dofbot_color_identify
+dofbot_color_sorting
+dofbot_color_stacking
+
+统一标签：🟡 Vision + Behavior Demo（颜色规则）
+
+它们是什么
+
+颜色识别
+
+if/else 逻辑
+
+机械臂执行预设动作
+
+工程判断
+
+❌ 不是算法研究
+
+❌ 不是通用模块
+
+✅ 是“功能展示脚本”
+
+建议
+
+整组放 attic/vision_color_demos/
+
+不要分散在主工程
+
+🟡 交互 / AI 噱头 Demo
+dofbot_face_follow
+
+标签：🟡 Vision Demo（人脸跟随）
+
+基于人脸检测
+
+规则驱动
+
+dofbot_gesture
+
+标签：🟡 Vision Demo（手势识别）
+
+手势 → 指令映射
+
+Demo 性质非常明显
+
+dofbot_snake_follow
+
+标签：🟡 Behavior Demo（轨迹/仿生）
+
+预定义运动模式
+
+视觉或传感器触发
+
+dofbot_garbage_yolov11
+
+标签：🟡 ML Demo（YOLO 应用）
+
+YOLOv11 垃圾分类
+
+通常包含 大模型文件
+
+⚠️ 重点提醒
+
+❌ 不能随意开源模型
+
+❌ repo 体积风险
+
+建议完全隔离
+
+🟢 工具类（可能还能用）
+dofbot_utils
+
+标签：🟢 Utility / Helper
+
+它是什么
+
+公共函数
+
+工具脚本
+
+参数处理
+
+建议
+
+可拆出你觉得“有用的函数”
+
+剩下的还是 demo 附属
+
+dofbot_ctrl
+
+标签：🟢 Control Wrapper（控制壳）
+
+它是什么
+
+控制入口脚本
+
+把指令传给 SDK
+
+工程判断
+
+这是 最接近“你未来要写的 driver 的地方”
+
+但实现方式仍然是 demo 级
+
+👉 你可以“参考思想”，但不直接复用代码
+
+dofbot_voice/scripts
+
+标签：🟡 Interaction Demo（语音）
+
+它是什么
+
+语音控制 demo
+
+通常依赖外部 API
+
+建议
+
+归档
+
+不进核心工程
