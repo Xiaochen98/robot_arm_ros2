@@ -27,5 +27,13 @@ joints: [90, 90, 90, 0, 90, 90]"
 本程序的改进：
 原来的arm_driver假定机器人姿态正常，如果在机械臂被认为移动的情况下可能导致线缆卡住无法回位
 
+## Workspace Structure
+
+This repository contains multiple workspaces and vendor components.
+
+- [`dofbot_pro_ws/src`](dofbot_pro_ws/src)  
+  ROS 2 packages for DOFBOT Pro robotic arm  
+  → See detailed package breakdown:  
+  [`dofbot_pro_ws/src/README.md`](dofbot_pro_ws/src/README.md)
 
 
