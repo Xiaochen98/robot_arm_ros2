@@ -34,6 +34,6 @@ This repository contains multiple workspaces and vendor components.
 - [`dofbot_pro_ws/src`](dofbot_pro_ws/src)  
   ROS 2 packages for DOFBOT Pro robotic arm  
   → See detailed package breakdown:  
-  [`dofbot_pro_ws/src/README.md`](dofbot_pro_ws/src/README.md)
+  [`dofbot_pro_ws/src/README.md`](dofbot_pro_ws/src/Content Overview.md)
 
 
